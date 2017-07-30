@@ -11,7 +11,7 @@
     <script src="public/js/project.js"></script>
 </head>
 
-<body>
+<body ng-app="maclamApp">
     <div class="navbar-wrapper">
         <div class="container">
             <nav class="navbar navbar-inverse navbar-static-top">
@@ -35,13 +35,29 @@
         </div>
     </div>
 
-    <div ng-app="maclamModule" ng-controller="maclamController">
-        <div uib-carousel interval="interval">
-            <div uib-slide ng-repeat="slide in slides" active="slide.active">
+    <div ng-controller="maclamCtrl">
+        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+            <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
                 <img ng-src="{{slide.image}}" style="margin: auto;">
                 <div class="carousel-caption">
-                    <h4>{{slide.text}}</h4>
-                    <p>The Slide Text</p>
+                    <h4>Slide {{slide.id}}</h4>
+                    <p>{{slide.text}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container marketing">
+        <div class="row" ng-controller="authsCtrl">
+            <div class="page-header">
+                <h2 class="text-center">
+                    Authors
+                </h2>
+
+                <div class="col-lg-4" ng-repeat="auth in auths">
+                    <img ng-src="{{auth.image}}" width="140px" height="140px" alt="" class="img-circle" style="margin-top: 20px">
+                    <h2>{{auth.name}}</h2>
+                    <p>{{auth.text}}</p>
                 </div>
             </div>
         </div>
@@ -53,6 +69,7 @@
     </script>
     <script src="public/js/bootstrap.min.js"></script>
     <script src="public/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="public/js/holder.min.js"></script>
 
 </body>
 

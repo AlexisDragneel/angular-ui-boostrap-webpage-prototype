@@ -1,16 +1,36 @@
-var project = angular.module('maclamModule', ['ui.bootstrap']);
+var project = angular.module('maclamApp', ['ui.bootstrap']);
 
-project.controller('maclamController', ['$scope', function($scope) {
-    $scope.interval = 5000;
+project.controller('maclamCtrl', ['$scope', function($scope) {
+    $scope.myInterval = 3000;
+    $scope.noWrapSlides = false;
+    $scope.active = 0;
     var slides = $scope.slides = [];
-    $scope.addSlide = function() {
-        var newWidth = 600 + slides.length + 1;
-        slides.push({
-            image: 'http://placekitten.com/' + newWidth + '/300',
-            text: ['More', 'Extra', 'Lots of', 'Surplus'][slides.length % 4] + ' ' + ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
-        });
-    };
-    for (var i = 0; i < 4; i++) {
-        $scope.addSlide();
-    }
+    var currIndex = 0;
+    slides.push({
+        image: 'public/images/01.jpg',
+        text: 'texto 1',
+        id: currIndex++
+    });
+    slides.push({
+        image: 'public/images/01.jpg',
+        text: 'texto 2',
+        id: currIndex++
+    });
+
+}]);
+
+project.controller('authsCtrl', ['$scope', function($scope) {
+    $scope.auths = [{
+        image: 'public/images/diaz.jpg',
+        name: 'Dr. Alberto Díaz Díaz',
+        text: 'Currently researcher and professor in the research center CIMAV (Centro de Investigación en Materiales Avanzados S.C.).'
+    }, {
+        image: 'public/images/diaz.jpg',
+        name: 'Dr. Alberto Díaz Díaz',
+        text: 'Currently researcher and professor in the research center CIMAV (Centro de Investigación en Materiales Avanzados S.C.).'
+    }, {
+        image: 'public/images/diaz.jpg',
+        name: 'Dr. Alberto Díaz Díaz',
+        text: 'Currently researcher and professor in the research center CIMAV (Centro de Investigación en Materiales Avanzados S.C.).'
+    }];
 }]);
