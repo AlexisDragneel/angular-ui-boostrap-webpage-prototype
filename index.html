@@ -61,7 +61,23 @@
                 </div>
             </div>
         </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette" ng-controller="newsCtrl">
+            <div ng-repeat="n in news">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading"><span class="text-muted">{{n.title}}</span></h2>
+                    <p class="lead">{{n.notice}} </p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-responsive center-block" ng-src="{{n.image}}}" alt="generic place holder">
+                </div>
+            </div>
+        </div>
     </div>
+
+
 
     <script src="public/js/jquery-3.2.1.js"></script>
     <script>

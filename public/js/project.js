@@ -34,3 +34,11 @@ project.controller('authsCtrl', ['$scope', function($scope) {
         text: 'Currently researcher and professor in the research center CIMAV (Centro de Investigación en Materiales Avanzados S.C.).'
     }];
 }]);
+
+project.controller('newsCtrl', ['$scope', function($scope) {
+    $scope.news = [{
+        image: 'public/images/01.jpg',
+        title: 'MACLAM',
+        notice: 'Is a friendly tool which makes possible to carry out a mechanical analysis of composite materials and multi-layered structures. MACLAM has three modules',
+    }];
+}]);
